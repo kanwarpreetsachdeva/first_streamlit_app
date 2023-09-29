@@ -24,7 +24,7 @@ streamlit.dataframe(fruit_to_show)
 #New Section to display FruityVice response
 streamlit.header('FruityVice Fruit Advice!')
 # Ask the user to enter a fruit choice, Default is Kiwi
-fruit_choice = srteamlit.text_input('What fruit would you like information about?','Kiwi')
+fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
 #Print the user entered fruit choice on the screen
 streamlit.write('The user entered the following fruit chooce', fruit_choice)
 
