@@ -26,7 +26,7 @@ streamlit.header('FruityVice Fruit Advice!')
 # Ask the user to enter a fruit choice, Default is Kiwi
 fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
 #Print the user entered fruit choice on the screen
-streamlit.write('The user entered the following fruit chooce', fruit_choice)
+streamlit.write('The user entered the following fruit choice', fruit_choice)
 
 
 import requests
@@ -48,5 +48,5 @@ streamlit.dataframe(my_data_rows)
 
 # Ask the user to add a fruit
 add_my_fruit = streamlit.text_input('What fruit would you like to add?')
-streamlit.text("Thanks for adding", add_my_fruit)
+streamlit.write("Thanks for adding", add_my_fruit)
 
