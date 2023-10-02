@@ -28,21 +28,17 @@ streamlit.dataframe(fruit_to_show)
 
 #New Section to display FruityVice response
 streamlit.header('FruityVice Fruit Advice!')
-# Ask the user to enter a fruit choice, Default is Kiwi
-fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
-#Print the user entered fruit choice on the screen
-streamlit.write('The user entered the following fruit choice', fruit_choice)
+try:
+  fruit_choice = streamlit.text_input('What fruit would you like information about?')
+  if no fruit_choice:
+    streamlit.error ("Please select a fruit to get information.")
+  else:
+    fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
+    fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+    streamlit.dataframe(fruityvice_normalized)
 
-
-
-# Call the fruitvice API for the fruit choice entered by the user
-#import requests
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
-
-# Normalize the json format in dataframe with keys as columns and values as rows
-fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
-# Print the normalized json data in dataframe on the screen as a table
-streamlit.dataframe(fruityvice_normalized)
+except URLError as e:
+  streamlit.error()
 
 # Do not execute steps beyond this point till I debug
 streamlit.stop()
