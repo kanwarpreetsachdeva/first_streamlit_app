@@ -46,7 +46,7 @@ try:
 except URLError as e:
   streamlit.error()
 
-snowflake.title ('View our Fruit List - Add your Favorites!')
+streamlit.title ('View our Fruit List - Add your Favorites!')
 
 #Snowflake related functions
 def get_fruit_load_list():
